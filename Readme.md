@@ -1,6 +1,6 @@
-# 🛍️ Product Store
+# 🛍️ Product Store - PERN + Neon + Arcjet
 
-**Product Store**, PERN yığını (PostgreSQL, Express.js, React.js, Node.js) kullanılarak geliştirilmiş tam işlevli bir ürün mağazası uygulamasıdır. Kullanıcılar ürünleri listeleyebilir, ekleyebilir, güncelleyebilir ve silebilir. Uygulama hem frontend hem de backend bileşenlerini içermektedir.
+Product Store, modern web teknolojileri kullanılarak geliştirilmiş tam özellikli bir ürün mağazası uygulamasıdır. Proje PostgreSQL, Express.js, React.js ve Node.js (PERN stack) üzerine kuruludur. Veritabanı olarak **Neon** (sunucusuz PostgreSQL) kullanılmakta olup, güvenlik ve performans için **Arcjet** entegre edilmiştir.
 
 ---
 
@@ -11,6 +11,7 @@
 - [Kurulum](#kurulum)
 - [Kullanım](#kullanım)
 - [Yapılandırma](#yapılandırma)
+- [.env Örneği](#env-örneği)
 - [Dizin Yapısı](#dizin-yapısı)
 - [Katkıda Bulunanlar](#katkıda-bulunanlar)
 - [Lisans](#lisans)
@@ -19,21 +20,23 @@
 
 ## ✨ Özellikler
 
-- Ürünleri listeleme
-- Yeni ürün ekleme
-- Mevcut ürünleri güncelleme
-- Ürünleri silme
-- RESTful API ile backend işlemleri
-- Responsive kullanıcı arayüzü
+- Ürünleri listeleme, ekleme, güncelleme ve silme
+- RESTful API desteği
+- Responsive React.js arayüz
+- **Neon** ile hızlı ve sunucusuz PostgreSQL veritabanı
+- **Arcjet** ile gelişmiş güvenlik ve edge-native performans
 
 ---
 
 ## 🛠️ Kullanılan Teknolojiler
 
 - **Backend**: Node.js, Express.js
-- **Veritabanı**: PostgreSQL
+- **Veritabanı**: PostgreSQL (Neon.tech)
 - **Frontend**: React.js
-- **API**: RESTful API
+- **API**: RESTful servisler
+- **Servisler**:
+  - [Neon](https://neon.tech) – Serverless PostgreSQL
+  - [Arcjet](https://arcjet.com) – Auth ve edge-native güvenlik
 
 ---
 
@@ -44,59 +47,83 @@
 ```bash
 git clone https://github.com/azizcanbalci/product-store.git
 cd product-store
-2. PostgreSQL Veritabanını Kurun
-PostgreSQL'i sisteminize kurun ve aşağıdaki adımları izleyin:
+```
 
-sql
-Kopyala
-Düzenle
-CREATE DATABASE product_store;
-CREATE USER your_user WITH PASSWORD 'your_password';
-GRANT ALL PRIVILEGES ON DATABASE product_store TO your_user;
-3. Backend Kurulumu
-bash
-Kopyala
-Düzenle
+### 2. Neon Veritabanı Oluşturun
+
+[https://neon.tech](https://neon.tech) üzerinden ücretsiz bir veritabanı oluşturun. Veritabanı bağlantı bilgilerini `.env` dosyasına ekleyeceğiz.
+
+### 3. Backend Kurulumu
+
+```bash
 cd backend
 npm install
-4. Frontend Kurulumu
-bash
-Kopyala
-Düzenle
+```
+
+### 4. Frontend Kurulumu
+
+```bash
 cd ../frontend
 npm install
-📦 Kullanım
-Backend'i Başlatın
-bash
-Kopyala
-Düzenle
+```
+
+---
+
+## 📦 Kullanım
+
+### Backend'i Başlatın
+
+```bash
 cd backend
 npm start
-Frontend'i Başlatın
-bash
-Kopyala
-Düzenle
+```
+
+### Frontend'i Başlatın
+
+```bash
 cd ../frontend
 npm start
-Uygulama varsayılan olarak http://localhost:3000 adresinde çalışacaktır.
+```
 
-⚙️ Yapılandırma
-Backend için backend/.env dosyasını oluşturun ve aşağıdaki değişkenleri tanımlayın:
+Uygulama varsayılan olarak `http://localhost:3000` adresinde çalışacaktır.
 
-env
-Kopyala
-Düzenle
-DB_USER=your_user
-DB_PASSWORD=your_password
-DB_HOST=localhost
-DB_PORT=5432
-DB_NAME=product_store
-📁 Dizin Yapısı
-plaintext
-Kopyala
-Düzenle
+---
+
+## ⚙️ Yapılandırma
+
+Projeyi çalıştırmadan önce `backend/` dizininde bir `.env` dosyası oluşturun ve gerekli değişkenleri tanımlayın.
+
+---
+
+## 🧪 .env Örneği
+
+```env
+# Uygulama portu
+PORT=3000
+
+# Neon veritabanı bağlantı bilgileri
+PGUSER=your_neon_username
+PGPASSWORD=your_neon_password
+PGHOST=your_neon_host_url
+PGDATABASE=your_neon_database_name
+
+# Arcjet ayarları
+ARCJET_KEY=your_arcjet_api_key
+ARCJET_ENV=development
+
+# Node çalışma ortamı
+NODE_ENV=production
+```
+
+> 🔐 Gerçek değerleri `.env` dosyasına yazın ama bu dosyayı asla commit etmeyin. `.gitignore` içinde olduğundan emin olun.
+
+---
+
+## 📁 Dizin Yapısı
+
+```plaintext
 product-store/
-├── backend/       # Express.js sunucusu ve PostgreSQL bağlantıları
+├── backend/       # Express.js API ve veritabanı işlemleri
 │   ├── controllers/
 │   ├── models/
 │   ├── routes/
@@ -106,8 +133,14 @@ product-store/
 │   ├── public/
 │   ├── src/
 │   └── package.json
-├── README.md      # Proje açıklamaları
+├── README.md
 └── package.json
-👥 Katkıda Bulunanlar
-Aziz Can Balcı
 ```
+
+---
+
+## 👥 Katkıda Bulunanlar
+
+- [Aziz Can Balcı](https://github.com/azizcanbalci)
+
+---
