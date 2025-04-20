@@ -1,23 +1,43 @@
 # 🛍️ Product Store
 
-Bu proje, PERN stack kullanılarak geliştirilmiş tam işlevli bir ürün mağazası uygulamasıdır. Kullanıcılar ürünleri görüntüleyebilir, ekleyebilir, güncelleyebilir ve silebilir. Uygulama hem frontend hem backend bileşenlerini içerir.
+**Product Store**, PERN yığını (PostgreSQL, Express.js, React.js, Node.js) kullanılarak geliştirilmiş tam işlevli bir ürün mağazası uygulamasıdır. Kullanıcılar ürünleri listeleyebilir, ekleyebilir, güncelleyebilir ve silebilir. Uygulama hem frontend hem de backend bileşenlerini içermektedir.
 
-## 🧱 Kullanılan Teknolojiler
+---
 
-- 🔙 **Backend**: Node.js, Express.js
-- 🧠 **Veritabanı**: PostgreSQL
-- 💻 **Frontend**: React.js
-- 🔗 **API**: RESTful API
+## 📋 İçindekiler
 
-## 📁 Proje Yapısı
+- [Özellikler](#özellikler)
+- [Kullanılan Teknolojiler](#kullanılan-teknolojiler)
+- [Kurulum](#kurulum)
+- [Kullanım](#kullanım)
+- [Yapılandırma](#yapılandırma)
+- [Dizin Yapısı](#dizin-yapısı)
+- [Katkıda Bulunanlar](#katkıda-bulunanlar)
+- [Lisans](#lisans)
 
-product-store/ ├── backend/ # Express.js sunucusu ve PostgreSQL bağlantıları ├── frontend/ # React.js istemcisi ├── README.md # Bu dosya
+---
 
-bash
-Kopyala
-Düzenle
+## ✨ Özellikler
 
-## 🚀 Kurulum ve Çalıştırma
+- Ürünleri listeleme
+- Yeni ürün ekleme
+- Mevcut ürünleri güncelleme
+- Ürünleri silme
+- RESTful API ile backend işlemleri
+- Responsive kullanıcı arayüzü
+
+---
+
+## 🛠️ Kullanılan Teknolojiler
+
+- **Backend**: Node.js, Express.js
+- **Veritabanı**: PostgreSQL
+- **Frontend**: React.js
+- **API**: RESTful API
+
+---
+
+## 🚀 Kurulum
 
 ### 1. Depoyu Klonlayın
 
@@ -25,59 +45,69 @@ Düzenle
 git clone https://github.com/azizcanbalci/product-store.git
 cd product-store
 2. PostgreSQL Veritabanını Kurun
-Veritabanı yapılandırmasını backend/.env dosyasına uygun şekilde ayarlayın:
+PostgreSQL'i sisteminize kurun ve aşağıdaki adımları izleyin:
 
-ini
+sql
 Kopyala
 Düzenle
-DB_USER=your_user
-DB_PASSWORD=your_password
-DB_HOST=localhost
-DB_PORT=5432
-DB_NAME=product_store
-Ayrıca backend/db.sql gibi bir dosya varsa, tablo oluşturmak için kullanabilirsiniz.
-
+CREATE DATABASE product_store;
+CREATE USER your_user WITH PASSWORD 'your_password';
+GRANT ALL PRIVILEGES ON DATABASE product_store TO your_user;
 3. Backend Kurulumu
 bash
 Kopyala
 Düzenle
 cd backend
 npm install
-npm run dev
-Express.js API varsayılan olarak http://localhost:5000'de çalışır.
-
 4. Frontend Kurulumu
 bash
 Kopyala
 Düzenle
 cd ../frontend
 npm install
-npm start
-React uygulaması http://localhost:3000'de çalışacaktır.
-
-🧩 Özellikler
-Ürün listeleme
-
-Ürün ekleme, düzenleme ve silme (CRUD)
-
-PostgreSQL veritabanı ile veri kalıcılığı
-
-RESTful API yapısı
-
-Modern ve kullanıcı dostu React arayüzü
-
-🔒 Ortam Değişkenleri
-backend/.env dosyasına aşağıdaki değişkenleri eklemeniz gerekir:
-
+📦 Kullanım
+Backend'i Başlatın
 bash
 Kopyala
 Düzenle
-PORT=5000
+cd backend
+npm start
+Frontend'i Başlatın
+bash
+Kopyala
+Düzenle
+cd ../frontend
+npm start
+Uygulama varsayılan olarak http://localhost:3000 adresinde çalışacaktır.
+
+⚙️ Yapılandırma
+Backend için backend/.env dosyasını oluşturun ve aşağıdaki değişkenleri tanımlayın:
+
+env
+Kopyala
+Düzenle
 DB_USER=your_user
 DB_PASSWORD=your_password
 DB_HOST=localhost
 DB_PORT=5432
 DB_NAME=product_store
-🤝 Katkıda Bulunma
-Katkılarınızı memnuniyetle karşılıyoruz! Lütfen bir fork oluşturun, değişikliklerinizi yeni bir dalda yapın ve bir pull request gönderin.
+📁 Dizin Yapısı
+plaintext
+Kopyala
+Düzenle
+product-store/
+├── backend/       # Express.js sunucusu ve PostgreSQL bağlantıları
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── .env
+│   └── index.js
+├── frontend/      # React.js istemcisi
+│   ├── public/
+│   ├── src/
+│   └── package.json
+├── README.md      # Proje açıklamaları
+└── package.json
+👥 Katkıda Bulunanlar
+Aziz Can Balcı
 ```
